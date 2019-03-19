@@ -1,16 +1,20 @@
 import React from 'react';
 
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 import { connect } from 'react-redux';
 
 // import styles from './styles';
 
-const TodoList = ({ todos }) => (
+const TodoList = ({ todos, dispatch }) => (
   <View style={{ flex: 1, backgroundColor: '#FFF', justifyContent: 'center' }}>
     {todos.map(todo => (
       <Text key={todo}>{todo}</Text>
     ))}
+    <Button
+      onPress={() => dispatch({ type: 'ADD_TODO', text: 'Novo todo' })}
+      title="Adicionar todo"
+    />
   </View>
 );
 
