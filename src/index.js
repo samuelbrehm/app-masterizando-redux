@@ -4,13 +4,13 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 
-import TodoList from './TodoList';
+import Routes from './routes';
 
 // import styles from './styles';
 
 const App = () => (
   <Provider store={store}>
-    <TodoList />
+    <Routes />
   </Provider>
 );
 

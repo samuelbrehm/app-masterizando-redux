@@ -1,10 +1,9 @@
 import { createStore, compose } from 'redux';
 
-import todos from './reducers/todos';
+import reducer from './reducers/login';
 
-// const createAppropriateStore = __DEV__ ? console.tron.createStore : createStore;
 const store = __DEV__
-  ? createStore(todos, compose(console.tron.createEnhancer()))
-  : createStore(todos);
+  ? createStore(reducer, compose(console.tron.createEnhancer()))
+  : createStore(reducer);
 
 export default store;
