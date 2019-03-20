@@ -1,23 +1,10 @@
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 
-const INITIAL_STATE = [
-  { id: 1, text: 'Fazer café', completed: false },
-  { id: 2, text: 'Estudar React Native', completed: true },
-  { id: 3, text: 'Estudar Redux', completed: false },
-];
+import todos from './reducers/todos';
 
-function reducer(state = INITIAL_STATE, action) {
-  console.tron.log(action);
-  switch (action.type) {
-    case 'ADD_TODO':
-      return [...state, { id: Math.random(), text: action.payload.text, completed: false }];
-    case 'MARK_AS_COMPLETED':
-      return state.map(todo => (todo.id === action.payload.id ? { ...todo, completed: !todo.completed } : todo));
-    default:
-      return state;
-  }
-}
-
-const store = createStore(reducer);
+// const createAppropriateStore = __DEV__ ? console.tron.createStore : createStore;
+const store = __DEV__
+  ? createStore(todos, compose(console.tron.createEnhancer()))
+  : createStore(todos);
 
 export default store;
