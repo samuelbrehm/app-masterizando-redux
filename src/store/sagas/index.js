@@ -1,7 +1,9 @@
 import {
   all, takeLatest, call, put,
 } from 'redux-saga/effects';
+
 import api from '~/services/api';
+import { navigate } from '~/services/navigation';
 
 import * as LoginActions from '~/store/actions/login';
 
@@ -13,7 +15,7 @@ function* login(action) {
 
     yield put(LoginActions.loginSuccess(username));
 
-    // navigation.navigate('Repositories');
+    navigate('Repositories');
   } catch (err) {
     yield put(LoginActions.loginFailure());
   }
